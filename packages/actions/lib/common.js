@@ -37,7 +37,7 @@ function main(params) {
   }
 
   let wskDeployCmd = `ibmcloud fn deploy -v --manifest ${manifestFileName}`;
-  let namespaceCmd = iamData ? `ibmcloud fn property set --namespace ${namespace}` : 'ibmcloud fn property unset --namespace';
+  let namespaceCmd = iamData ? `ibmcloud fn property set -v --namespace ${namespace}` : 'ibmcloud fn property unset --namespace';
 
   if (!fs.existsSync(manifestFilePath)) {
     if (usingTemp) {
@@ -58,9 +58,12 @@ function main(params) {
         ]);
     })
     .then(() => {
+      console.log('setting namespace');
       return async_exec(namespaceCmd);
     })
-    .then(() => {
+    .then(result => {
+      console.log(result.stdout);
+      console.log('running deploy');
       return execWskDeploy(wskDeployCmd, execOptions);
     })
     .catch(error => {
@@ -81,7 +84,7 @@ function execWskDeploy(wskDeployCmd, execOptions) {
         return reject('Error running `wsk deploy`: ' + err);
       }
       if (stdout) {
-        console.log('stdout from wsk deploy: ', stdout, ' type ', typeof stdout);
+        console.log('stdout from wsk deploy: ', stdout);
         if (stdout.error) {
           return reject(stdout);
         }
