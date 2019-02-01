@@ -1,0 +1,4 @@
+{
+  "IamTimeTokenRefreshed": "{{ currentTime }}",
+  "TimeTokenRefreshed": "{{ currentTime }}"
+}

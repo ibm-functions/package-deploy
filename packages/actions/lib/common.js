@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const moment = require('moment');
 const { exec } = require('child_process');
 const { renderTemplateFile } = require('template-file');
 const util = require('util');
@@ -26,6 +27,7 @@ function main(params) {
   const manifestFilePath = `${repoDir}/${manifestPath}/${manifestFileName}`;
   const configTemplate = path.join('lib', 'config.json');
   const cfConfigTemplate = path.join('lib', 'cf_config.json');
+  const fnConfigTemplate = path.join('lib', 'fn_config.json');
   const execOptions = {
     cwd: `${repoDir}/${manifestPath}`,
   };
@@ -46,15 +48,14 @@ function main(params) {
     return Promise.reject('Error loading manifest file. Does a manifest file exist?');
   }
   else {
-    if (fs.existsSync('/root/.bluemix/plugins/cloud-functions/config.json')) {
-      fs.unlinkSync('/root/.bluemix/plugins/cloud-functions/config.json');
-    }
     return getRegionData(region, iamData, cfData)
-    .then(dataObject => {
+    .then(regionGlob => {
+      let timeGlob = {currentTime: moment().format()};
       return Promise.all(
         [
-          renderAndWriteFile(configTemplate, dataObject, '/root/.bluemix/config.json'),
-          renderAndWriteFile(cfConfigTemplate, dataObject, '/root/.bluemix/.cf/config.json')
+          renderAndWriteFile(configTemplate, regionGlob, '/root/.bluemix/config.json'),
+          renderAndWriteFile(cfConfigTemplate, regionGlob, '/root/.bluemix/.cf/config.json'),
+          renderAndWriteFile(fnConfigTemplate, timeGlob, '/root/.bluemix/plugins/cloud-functions/config.json')
         ]);
     })
     .then(() => {
