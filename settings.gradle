@@ -1,0 +1,12 @@
+include 'tests'
+
+rootProject.name = 'package-deploy'
+
+gradle.ext.openwhisk = [
+        version: '1.0.0-SNAPSHOT'
+]
+
+gradle.ext.scala = [
+    version: '2.12.7',
+    compileFlags: ['-feature', '-unchecked', '-deprecation', '-Xfatal-warnings', '-Ywarn-unused-import']
+]

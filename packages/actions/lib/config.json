@@ -1,0 +1,43 @@
+{
+  "APIEndpoint": "{{ apiEndpoint }}",
+  "Account": {
+    "GUID": "FUNCTIONS_ACCOUNT_GUID",
+    "Name": "FUNCTIONS_ACCOUNT_NAME",
+    "Owner": "FUNCTIONS_ACCOUNT_OWNER"
+  },
+  "CFEEEnvID": "",
+  "CFEETargeted": false,
+  "CLIInfoEndpoint": "",
+  "CheckCLIVersionDisabled": true,
+  "CloudName": "FUNCTIONS_CLOUD_NAME",
+  "CloudType": "public",
+  "ColorEnabled": "",
+  "ConsoleEndpoint": "FUNCTIONS_CONSOLE_ENDPOINT",
+  "HTTPTimeout": 0,
+  "IAMEndpoint": "{{ iamEndpoint }}",
+  "IAMRefreshToken": "{{ iamRefreshToken }}",
+  "IAMToken": "{{ iamToken }}",
+  "Locale": "",
+  "PluginRepos": [
+    {
+      "Name": "IBM Cloud",
+      "URL": "https://plugins.cloud.ibm.com"
+    }
+  ],
+  "Region": "{{ region }}",
+  "RegionID": "FUNCTIONS_REGIONID",
+  "ResourceGroup": {
+    "Default": true,
+    "GUID": "FUNCTIONS_RESOURCEGROUP_GUID",
+    "Name": "Default",
+    "QuotaID": "FUNCTIONS_RESOURCEGROUP_QUOTAID",
+    "State": "ACTIVE"
+  },
+  "SDKVersion": "0.2.0",
+  "SSLDisabled": false,
+  "Trace": "",
+  "UpdateCheckInterval": 0,
+  "UpdateNotificationInterval": 0,
+  "UpdateRetryCheckInterval": 0,
+  "UsageStatsDisabled": true
+}

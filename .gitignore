@@ -1,0 +1,8 @@
+#Gradle
+.gradle
+build/
+tests/credentials.json
+openwhisk
+packages/actions/templates
+packages/actions/package.json
+packages/actions/deployWeb.zip

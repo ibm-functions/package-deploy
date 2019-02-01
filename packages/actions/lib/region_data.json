@@ -1,0 +1,38 @@
+{
+  "us-south": {
+    "region": "us-south",
+    "apiEndpoint": "cloud.ibm.com",
+    "iamEndpoint": "https://iam.bluemix.net",
+    "authorizationEndpoint": "https://login.ng.bluemix.net/UAALoginServerWAR"
+  },
+  "us-east": {
+    "region": "us-east",
+    "apiEndpoint": "cloud.ibm.com",
+    "iamEndpoint": "https://iam.bluemix.net",
+    "authorizationEndpoint": "https://login.us-east.bluemix.net/UAALoginServerWAR"
+  },
+  "eu-gb": {
+    "region": "eu-gb",
+    "apiEndpoint": "cloud.ibm.com",
+    "iamEndpoint": "https://iam.bluemix.net",
+    "authorizationEndpoint": "https://login.eu-gb.bluemix.net/UAALoginServerWAR"
+  },
+  "eu-de": {
+    "region": "eu-de",
+    "apiEndpoint": "cloud.ibm.com",
+    "iamEndpoint": "https://iam.bluemix.net",
+    "authorizationEndpoint": "https://login.eu-de.bluemix.net/UAALoginServerWAR"
+  },
+  "jp-tok": {
+    "region": "jp-tok",
+    "apiEndpoint": "cloud.ibm.com",
+    "iamEndpoint": "https://iam.bluemix.net",
+    "authorizationEndpoint": ""
+  },
+  "ys1": {
+    "region": "us-south",
+    "apiEndpoint": "https://api.stage1.ng.bluemix.net",
+    "iamEndpoint": "https://iam.stage1.bluemix.net",
+    "authorizationEndpoint": "https://login.us-south.cf.test.cloud.ibm.com/UAALoginServerWAR"
+  }
+}
