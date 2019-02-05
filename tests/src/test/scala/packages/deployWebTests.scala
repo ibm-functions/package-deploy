@@ -37,7 +37,7 @@ class DeployWebTests extends TestHelpers
     val wsk = new Wsk()
 
     // action and web action url
-    val deployAction = "/whisk.system/deployWeb/wskdeploy"
+    val deployAction = "/whisk.system/deployWebV2/wskdeployV2"
     val deployActionURL = s"https://${wskprops.apihost}/api/v1/web${deployAction}.http"
 
     // set parameters for deploy tests
@@ -97,6 +97,34 @@ class DeployWebTests extends TestHelpers
         "namespace" -> JsString(deployTestNamespace),
         "iamData" -> JsObject()
       ), errorLoadingManifestStatus, 400)
+    }
+
+    // test to create a template with an incorrect region provided
+    it should "return with failure if incorrect region is provided" in {
+        makePostCallWithExpectedResult(JsObject(
+            "gitUrl" -> JsString(deployTestRepo),
+            "region" -> JsString("ap-south"),
+            "namespace" -> JsString(deployTestNamespace),
+            "iamData" -> JsObject()
+        ), """"error": "A valid region must be specified"""", 400)
+    }
+
+    // test to create a template with no namespace provided
+    it should "return with failure if no namespace is provided" in {
+        makePostCallWithExpectedResult(JsObject(
+            "gitUrl" -> JsString(deployTestRepo),
+            "region" -> JsString(deployTestRegion),
+            "iamData" -> JsObject()
+        ), """"error": "A namespace must be specified"""", 400)
+    }
+
+    // test to create a template with no credential data provided
+    it should "return with failure if no credential data is provided" in {
+        makePostCallWithExpectedResult(JsObject(
+            "gitUrl" -> JsString(deployTestRepo),
+            "region" -> JsString(deployTestRegion),
+            "namespace" -> JsString(deployTestNamespace)
+        ), """"error": "Either iamData or cfData must be specified"""", 400)
     }
 
 }

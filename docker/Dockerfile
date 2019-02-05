@@ -9,6 +9,4 @@ RUN apt-get update \
 
 RUN curl -fsSL https://clis.ng.bluemix.net/install/linux | sh
 
-COPY bmx-wsk-plugin /
-
-RUN ibmcloud plugin install /bmx-wsk-plugin
+RUN bx plugin install cloud-functions
