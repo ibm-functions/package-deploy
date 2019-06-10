@@ -18,14 +18,12 @@
 package packages
 
 
+import common.{TestHelpers, Wsk, WskProps, WskTestHelpers}
+import io.restassured.RestAssured
+import io.restassured.config.SSLConfig
 import org.junit.runner.RunWith
 import org.scalatest.BeforeAndAfterAll
 import org.scalatest.junit.JUnitRunner
-import common.{TestHelpers, Wsk, WskProps, WskTestHelpers}
-
-import com.jayway.restassured.RestAssured
-import com.jayway.restassured.config.SSLConfig
-
 import spray.json._
 
 @RunWith(classOf[JUnitRunner])
