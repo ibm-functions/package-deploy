@@ -30,6 +30,7 @@ function main(params) {
   const fnConfigTemplate = path.join('lib', 'fn_config.json');
   const execOptions = {
     cwd: `${repoDir}/${manifestPath}`,
+    maxBuffer: 1024 * 1024,
   };
 
   //If we were passed environment data (Cloudant bindings, etc.) add it to the options for `exec`
