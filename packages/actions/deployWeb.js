@@ -40,7 +40,7 @@ function main(params) {
     return sendError(400, 'Please enter the GitHub repo url in params');
   }
   if (!region || (region !== 'us-south' && region !== 'us-east'&& region !== 'eu-gb' &&
-      region !== 'eu-de' && region !== 'jp-tok' && region !== 'ys1')) {
+      region !== 'eu-de' && region !== 'jp-tok' && region !== 'au-syd' && region !== 'ys1')) {
     return sendError(400, 'A valid region must be specified');
   }
   if (!namespace) {
