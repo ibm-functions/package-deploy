@@ -37,8 +37,8 @@
   },
   "ys1": {
     "region": "us-south",
-    "apiEndpoint": "https://api.stage1.ng.cloud.ibm.com",
-    "iamEndpoint": "https://iam.stage1.cloud.ibm.com",
+    "apiEndpoint": "https://test.cloud.ibm.com",
+    "iamEndpoint": "https://iam.test.cloud.ibm.com",
     "authorizationEndpoint": "https://login.us-south.cf.test.cloud.ibm.com/UAALoginServerWAR"
   }
 }
