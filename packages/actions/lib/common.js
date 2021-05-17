@@ -39,8 +39,9 @@ function main(params) {
     execOptions.env = envData;
   }
 
-  let wskDeployCmd = `ibmcloud fn deploy -v --manifest ${manifestFileName}`;
-  let namespaceCmd = iamData ? `ibmcloud fn property set -v --namespace ${namespace}` : 'ibmcloud fn property unset --namespace';
+  const verboseFlag = process.env.VERBOSE === 'true' ? '-v' : '';
+  let wskDeployCmd = `ibmcloud fn deploy ${verboseFlag} --manifest ${manifestFileName}`;
+  let namespaceCmd = iamData ? `ibmcloud fn property set ${verboseFlag} --namespace ${namespace}` : 'ibmcloud fn property unset --namespace';
 
   if (!fs.existsSync(manifestFilePath)) {
     if (usingTemp) {
