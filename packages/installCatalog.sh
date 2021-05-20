@@ -24,7 +24,7 @@ DOCKER="$4"
 # If docker is not provided, set to default version.
 if [ -z "$4" ]
   then
-    DOCKER="ibmfunctions/wskdeploy:0.0.4"
+    DOCKER="ibmfunctions/wskdeploy:0.0.3"
 fi
 
 # If the auth key file exists, read the key in the file. Otherwise, take the
